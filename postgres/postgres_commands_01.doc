@@ -1,0 +1,646 @@
+Message-ID: <2115551822.981.1508109026090.JavaMail.confluence@c259d83a55cd>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_980_267960022.1508109026090"
+
+------=_Part_980_267960022.1508109026090
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>Postgres: Sql, DBA scripts</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font-family: Arial, Helvetica, FreeSans, sans-serif;
+        font-size: 10pt;
+        line-height: 1.2;
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: #fff !important;
+        color: #000 !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: #000;
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        font-family: Arial, Helvetica, FreeSans, sans-serif;
+        page-break-after: avoid;
+    }
+
+    pre {
+        font-family: Monaco, "Courier New", monospace;
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>Postgres: Sql, DBA scripts</h1>
+    <div class=3D"Section1">
+        <h2 id=3D"Postgres:Sql,DBAscripts-Links,Tutorials:"><strong>Links, =
+Tutorials:</strong></h2>
+<p><a href=3D"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendi=
+x.PostgreSQL.CommonDBATasks.html" class=3D"external-link" rel=3D"nofollow">=
+http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.C=
+ommonDBATasks.html</a><br><a href=3D"http://docs.aws.amazon.com/AmazonRDS/l=
+atest/UserGuide/CHAP_PostgreSQL.html#d0e99805" class=3D"external-link" rel=
+=3D"nofollow">http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Po=
+stgreSQL.html#d0e99805</a><br><a href=3D"http://docs.aws.amazon.com/AmazonR=
+DS/latest/UserGuide/CHAP_BestPractices.html#CHAP_BestPractices.PostgreSQL" =
+class=3D"external-link" rel=3D"nofollow">http://docs.aws.amazon.com/AmazonR=
+DS/latest/UserGuide/CHAP_BestPractices.html#CHAP_BestPractices.PostgreSQL</=
+a> * * *<br><a href=3D"https://www.postgresql.org/docs/current/static/routi=
+ne-vacuuming.html#AUTOVACUUM" class=3D"external-link" rel=3D"nofollow">http=
+s://www.postgresql.org/docs/current/static/routine-vacuuming.html#AUTOVACUU=
+M</a><br><a href=3D"http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/U=
+SER_LogAccess.Concepts.PostgreSQL.html" class=3D"external-link" rel=3D"nofo=
+llow">http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.=
+Concepts.PostgreSQL.html</a><br><a href=3D"http://docs.aws.amazon.com/Amazo=
+nRDS/latest/UserGuide/CHAP_Storage.html" class=3D"external-link" rel=3D"nof=
+ollow">http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.h=
+tml</a> * * *<br><a href=3D"http://docs.aws.amazon.com/AmazonRDS/latest/Use=
+rGuide/PostgreSQL.Procedural.Importing.html" class=3D"external-link" rel=3D=
+"nofollow">http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL=
+.Procedural.Importing.html</a> * * * *<br><a href=3D"http://docs.aws.amazon=
+.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html" class=3D"external-link" r=
+el=3D"nofollow">http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_=
+Limits.html</a><br><a href=3D"https://www.postgresql.org/docs/9.1/static/fu=
+nctions-info.html" class=3D"external-link" rel=3D"nofollow">https://www.pos=
+tgresql.org/docs/9.1/static/functions-info.html</a> * * *</p>
+<p>Index:<br><a href=3D"https://www.compose.com/articles/indexing-for-full-=
+text-search-in-postgresql/" class=3D"external-link" rel=3D"nofollow">https:=
+//www.compose.com/articles/indexing-for-full-text-search-in-postgresql/</a>=
+<br><a href=3D"http://rachbelaid.com/postgres-full-text-search-is-good-enou=
+gh/" class=3D"external-link" rel=3D"nofollow">http://rachbelaid.com/postgre=
+s-full-text-search-is-good-enough/</a><br><a href=3D"https://blog.lateral.i=
+o/2015/05/full-text-search-in-milliseconds-with-postgresql/" class=3D"exter=
+nal-link" rel=3D"nofollow">https://blog.lateral.io/2015/05/full-text-search=
+-in-milliseconds-with-postgresql/</a><br><a href=3D"https://blog.codeship.c=
+om/unleash-the-power-of-storing-json-in-postgres/" class=3D"external-link" =
+rel=3D"nofollow">https://blog.codeship.com/unleash-the-power-of-storing-jso=
+n-in-postgres/</a></p>
+<p>Table Inheritence:<br><a href=3D"http://stackoverflow.com/questions/3074=
+535/when-to-use-inherited-tables-in-postgresql" class=3D"external-link" rel=
+=3D"nofollow">http://stackoverflow.com/questions/3074535/when-to-use-inheri=
+ted-tables-in-postgresql</a></p>
+<p>Queue Depth:<br><a href=3D"http://searchsolidstatestorage.techtarget.com=
+/definition/queue-depth" class=3D"external-link" rel=3D"nofollow">http://se=
+archsolidstatestorage.techtarget.com/definition/queue-depth</a></p>
+<p>Authentication:</p>
+<p><a href=3D"http://stackoverflow.com/questions/4328679/how-to-configure-p=
+ostgresql-so-it-accepts-loginpassword-auth" class=3D"external-link" rel=3D"=
+nofollow">http://stackoverflow.com/questions/4328679/how-to-configure-postg=
+resql-so-it-accepts-loginpassword-auth</a><br><a href=3D"http://www.postgre=
+sql.org/docs/9.1/static/auth-methods.html" class=3D"external-link" rel=3D"n=
+ofollow">http://www.postgresql.org/docs/9.1/static/auth-methods.html</a></p=
+>
+<p>Sql Tricks:</p>
+<p><a href=3D"http://postgres.cz/wiki/PostgreSQL_SQL_Tricks" class=3D"exter=
+nal-link" rel=3D"nofollow">http://postgres.cz/wiki/PostgreSQL_SQL_Tricks</a=
+></p>
+<h2 id=3D"Postgres:Sql,DBAscripts-Psqlcommands:"><strong>Psql commands:</st=
+rong><br><br></h2>
+<p><strong>Connect to Database:&nbsp;</strong><br>$ psql -d DB_NAME -h loca=
+lhost -U USER_NAME</p>
+<p><strong>Import data into table from a <strong>TSV&nbsp;</strong>file:</s=
+trong><br>psql&gt; COPY area FROM =E2=80=98/Users/ahsanul.hadi/Documents/Wo=
+rk/db/file_dir=E2=80=99 WITH DELIMITER E=E2=80=99\t=E2=80=99;<br>psql&gt;&n=
+bsp;COPY area FROM =E2=80=98/Users/ahsanul.hadi/Documents/Work/db/file_dir=
+=E2=80=99 WITH DELIMITER E=E2=80=99\t=E2=80=99 NULL AS ;</p>
+<p><strong>Pass a sql command:</strong><br>$ psql -d DB_NAME -h localhost -=
+U USER_NAME -t -A -c "select count(1) from musicbrainz.area";</p>
+<p><strong>Run sql from a File. -W will prompt for a password.</strong><br>=
+$ psql -d DB_NAME -h localhost -U User_name -W -f /Users/ahsanul.hadi/Docum=
+ents/Work/Database/my_queries.sql</p>
+<p><strong>Drop Database:</strong><br>dropdb -h DB_HOST_NAME -U User_name -=
+e -i &lt;database_name&gt;</p>
+<p><strong><br></strong></p>
+<p><strong>Commands:</strong><br>$ psql -l &nbsp; &nbsp; &nbsp; # List all =
+databases and exits.<br>$ psql --version &nbsp;# List the version</p>
+<p>psql&gt; \c -- DBNAME - USER - HOST -PORT &nbsp; # connects to another d=
+atabase.</p>
+<p>\l+ &nbsp; # List of all databases.<br>\d &nbsp;# List of all tables, vi=
+ews .<br>\d+ &lt;Table name&gt;q &nbsp; # Describe Table.<br>SHOW search_pa=
+th; &nbsp;# show current search_path or \g<br>SET SET search_path to "__sch=
+ema_name__";&nbsp; # Set new search_path.</p>
+<p>\dt+ &lt;Table name&gt; # Show table details like: size, owner, type, co=
+mment<br>\d+ &lt;table name&gt; &nbsp;# Shows all column name, storage and =
+column comments.<br>\dt &nbsp; # List of all tables.<br>\dn &nbsp;# List of=
+ Schemas<br>\dv &nbsp;# List of Views.</p>
+<p>\di &nbsp; # List of all Indexes.<br>\dg &nbsp;# List of Roles. / Users =
+OR \du<br>\dp &nbsp;# List of Access Privileges.<br>\db &nbsp;# List of Tab=
+lespaces<br>\dz &nbsp; # List of installed extensions.<br>\ds &nbsp; # List=
+ of Sequences.<br>\df &nbsp;# List of Functions.</p>
+<p><br>\z &nbsp; &nbsp;# Access privilege<br>\a &nbsp; &nbsp;# Align output=
+.<br>\f &nbsp; &nbsp;# Field separator<br>\h &nbsp; # Help</p>
+<p>psql=3D&gt; \connect nettwerk &nbsp; # connect to another database.<br>p=
+sql=3D&gt; \conninfo &nbsp; &nbsp; # Show current connection info. or \c<br=
+>psql=3D&gt; select version(); &nbsp; &nbsp;# Show version info.<br>psql=3D=
+&gt; select current_database(); &nbsp; &nbsp; &nbsp;# Show currently connec=
+ted DB.</p>
+<p><br></p>
+<h2 id=3D"Postgres:Sql,DBAscripts-DBAscripts:"><strong>DBA scripts:</strong=
+></h2>
+<p><br><strong>List of databases:</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeHeader panelHeader pdl" style=3D"border-bottom-width: 1px=
+;">
+<b>Get list of Databases</b>
+</div>
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: sql; gutter: false; theme: Confluence" data-theme=3D"Confluence">SELECT *
+FROM  pg_database
+WHERE datistemplate is false;</pre>=20
+</div>
+</div>
+<p><br></p>
+<p><strong>Logout/Terminate All other DB connections:</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: sql; gutter: false; theme: Confluence" data-theme=3D"Confluence">SELECT *=
+=20
+FROM pg_stat_activity
+ORDER BY query_start DESC;  -- All sessions.
+
+SELECT pg_terminate_backend(pid)=20
+FROM  pg_stat_activity=20
+WHERE pid &lt;&gt; pg_backend_pid();   -- Kill other sessions.
+-- WHERE usename =3D '__user_name__' AND query LIKE '%__query_pattern__%'; =
+  --- Kill specific session</pre>=20
+</div>
+</div>
+<p><br></p>
+<p><strong>Get list of Dependant Objects (Without list of columns but with =
+aggregated number of columns that are used):</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: sql; gutter: false; theme: Confluence" data-theme=3D"Confluence">SELECT d=
+ependent_ns.nspname =09AS dependent_schema,
+       dependent_view.relname =09AS dependent_view,
+       source_ns.nspname =09=09AS source_schema,
+       source_table.relname =09AS source_table,
+       COUNT(pg_attribute.attname) AS Num_of_dependent_cols
+       FROM pg_depend
+  JOIN pg_rewrite                   ON pg_depend.objid =3D pg_rewrite.oid
+  JOIN pg_class AS dependent_view   ON pg_rewrite.ev_class =3D dependent_vi=
+ew.oid
+  JOIN pg_class AS source_table     ON pg_depend.refobjid =3D source_table.=
+oid
+  JOIN pg_attribute                 ON (pg_depend.refobjid =3D pg_attribute=
+.attrelid  AND pg_depend.refobjsubid =3D pg_attribute.attnum)
+  JOIN pg_namespace dependent_ns    ON dependent_ns.oid =3D dependent_view.=
+relnamespace
+  JOIN pg_namespace source_ns       ON source_ns.oid =3D source_table.relna=
+mespace
+WHERE source_ns.nspname =3D 'sor_cc_pi'
+AND   dependent_ns.nspname &lt;&gt; 'iagdev' /* Exclude this Test Schema */
+AND   source_table.relname =3D 'abx_di_managedarea'
+AND   pg_attribute.attnum &gt; 0
+--AND pg_attribute.attname =3D 'my_column'
+GROUP BY dependent_ns.nspname,
+         dependent_view.relname,
+         source_ns.nspname,
+         source_table.relname
+ORDER BY 1,
+         2;</pre>=20
+</div>
+</div>
+<p><br></p>
+<p><strong>Get list of Dependant Objects (With list of columns):</strong></=
+p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: sql; gutter: false; theme: Confluence" data-theme=3D"Confluence">SELECT d=
+ependent_ns.nspname =09AS dependent_schema,
+       dependent_view.relname =09AS dependent_view,
+       source_ns.nspname =09=09AS source_schema,
+       source_table.relname =09AS source_table,
+       pg_attribute.attname =09AS column_name
+FROM pg_depend
+  JOIN pg_rewrite =09=09=09=09=09ON pg_depend.objid =3D pg_rewrite.oid
+  JOIN pg_class AS dependent_view =09ON pg_rewrite.ev_class =3D dependent_v=
+iew.oid
+  JOIN pg_class AS source_table =09ON pg_depend.refobjid =3D source_table.o=
+id
+  JOIN pg_attribute ON (pg_depend.refobjid =3D pg_attribute.attrelid AND pg=
+_depend.refobjsubid =3D pg_attribute.attnum)
+  JOIN pg_namespace dependent_ns =09ON dependent_ns.oid =3D dependent_view.=
+relnamespace
+  JOIN pg_namespace source_ns =09=09ON source_ns.oid =3D source_table.relna=
+mespace
+WHERE source_ns.nspname =3D 'sor_cc_pi'
+AND   source_table.relname =3D 'abx_di_managedarea'
+AND   pg_attribute.attnum &gt; 0
+--AND pg_attribute.attname =3D 'my_column'
+ORDER BY 1,
+         2;</pre>=20
+</div>
+</div>
+<p><br></p>
+<p>Related links:&nbsp;</p>
+<p><a href=3D"https://www.postgresql.org/docs/9.1/static/catalog-pg-depend.=
+html" class=3D"external-link" rel=3D"nofollow">https://www.postgresql.org/d=
+ocs/9.1/static/catalog-pg-depend.html</a></p>
+<p><a href=3D"https://wiki.postgresql.org/wiki/Pg_depend_display" class=3D"=
+external-link" rel=3D"nofollow">https://wiki.postgresql.org/wiki/Pg_depend_=
+display</a></p>
+<p><br><br><strong>Get Object Size:</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: sql; gutter: false; theme: Confluence" data-theme=3D"Confluence">SELECT p=
+g_database_size('__db_name__');
+SELECT pg_size_pretty(pg_database_size('__db_name__'));   =20
+
+-- Find size of all Databases.
+SELECT datname, pg_size_pretty(pg_database_size(datname)) as size
+FROM pg_database;
+
+
+-- Find size of tables and indexes:
+SELECT pg_size_pretty(pg_relation_size('public.table_name')); -- This value=
+ exclude indexes and some auxiliary data.
+SELECT pg_size_pretty(pg_total_relation_size(=E2=80=98users=E2=80=99)); -- =
+If you want to include them use pg_total_relation_size.
+SELECT relname, relpages FROM pg_class ORDER BY relpages DESC limit 1; -- f=
+ind the largest table in the postgreSQL database.</pre>=20
+</div>
+</div>
+<p><br><strong>List of all Constraints and related info:</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: sql; gutter: false; theme: Confluence" data-theme=3D"Confluence">-- Check=
+ &gt; information_schema.constraint_column_usage
+-- Check &gt; information_schema.key_column_usage
+
+SELECT *
+FROM information_schema.table_constraints
+WHERE table_schema =3D '__schema_name__'
+AND constraint_type =3D 'CHECK';</pre>=20
+</div>
+</div>
+<p><br><strong>List all tables and indexes:</strong><br><br></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: sql; gutter: false; theme: Confluence" data-theme=3D"Confluence">--  Crea=
+te a View for this.
+SELECT schemaname AS schema_name,
+       relname AS table_name,
+       pg_size_pretty(pg_relation_size (schemaname || '.' || relname)) AS s=
+ize
+FROM (SELECT schemaname,
+             relname,
+             'table' AS TYPE
+      FROM pg_stat_user_tables
+      UNION ALL
+      SELECT schemaname,
+             relname,
+             'index' AS TYPE
+      FROM pg_stat_user_indexes) x;</pre>=20
+</div>
+</div>
+<p><br><strong>Get all Comments (Table, Columns):</strong><br><br></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: sql; gutter: false; theme: Confluence" data-theme=3D"Confluence">SELECT a=
+.table_name,
+       a.objsubid,
+       b.column_name,
+       a.description
+FROM (SELECT nspname AS table_schema,
+             relname AS table_name,
+             objsubid,
+             description
+      FROM pg_description
+        JOIN pg_class ON pg_description.objoid =3D pg_class.oid
+        JOIN pg_namespace ON pg_class.relnamespace =3D pg_namespace.oid
+      WHERE nspname =3D '__schema_name__') AS a
+  LEFT JOIN (SELECT c.table_schema,
+                    c.table_name,
+                    c.ordinal_position,
+                    c.column_name,
+                    pgd.description
+             FROM pg_catalog.pg_statio_all_tables AS st
+               INNER JOIN pg_catalog.pg_description AS pgd ON (pgd.objoid =
+=3D st.relid)
+               INNER JOIN information_schema.columns AS c
+                       ON (pgd.objsubid =3D c.ordinal_position
+                      AND c.table_schema =3D st.schemaname
+                      AND c.table_name =3D st.relname)
+             WHERE c.table_schema =3D '__schema_name__') AS b
+         ON a.table_name =3D b.table_name
+        AND a.objsubid =3D b.ordinal_position
+ORDER BY a.table_name,
+         a.objsubid;</pre>=20
+</div>
+</div>
+<p><br><strong>PGCLI:</strong></p>
+<p>-- for Ubuntu.</p>
+<p>-- <a href=3D"http://pgcli.com/install" class=3D"external-link" rel=3D"n=
+ofollow">http://pgcli.com/install</a></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: bash; gutter: false; theme: Confluence" data-theme=3D"Confluence">$ which=
+ pip  # check whether exists or not ?
+$ sudo su  # switch to Root user.
+$ apt-get update # update package list.
+$ apt-get install python-pip
+$ apt-get install libpq-dev python-dev
+$ pip install pgcli</pre>=20
+</div>
+</div>
+<p><br></p>
+<p><strong>Use Regexp (Regular Expression):</strong></p>
+<p><a href=3D"https://www.postgresql.org/docs/9.3/static/functions-matching=
+.html" class=3D"external-link" rel=3D"nofollow">https://www.postgresql.org/=
+docs/9.3/static/functions-matching.html</a></p>
+<p><a href=3D"http://blog.lerner.co.il/regexps-in-postgresql/" class=3D"ext=
+ernal-link" rel=3D"nofollow">http://blog.lerner.co.il/regexps-in-postgresql=
+/</a></p>
+<p>-- example.</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: sql; gutter: false; theme: Confluence" data-theme=3D"Confluence">SELECT c=
+ol_name,
+       REGEXP_REPLACE(col_name,E '[\\n\\r\\u2028]+',' ','g') AS col_name_ne=
+w, --- replace 'new lines'      =20
+       counts,
+       (SELECT COUNT(*) FROM REGEXP_MATCHES(col_name,'\|','g')) AS num_of_b=
+ar-- then we need to find the 'BAR' separated values.
+       FROM (SELECT UPPER(TRIM(col_name)) AS col_name,
+                    COUNT(1) AS counts
+             FROM public.table1
+             WHERE col_name IS NOT NULL
+             GROUP BY UPPER(TRIM(col_name))) AS t
+ORDER BY col_name;
+
+</pre>=20
+</div>
+</div>
+<p><br></p>
+<p><strong>Backup and restore:</strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: sql; gutter: false; theme: Confluence" data-theme=3D"Confluence">-- Take =
+FULL BACKUP of source database.
+$ pg_dump -h [host_name] -d [database_name] -U [user_name] -n [schema_name]=
+ -C -c --if-exists --no-privileges --no-owner --no-tablespaces &gt; /Users/=
+backup/Full_data_dump.sql
+
+-- Drop the schema from the target database
+$ psql -h [host_name] -d [database_name]  -U [user_name] -c 'DROP SCHEMA [s=
+chema_name] CASCADE';
+
+-- IMPORT the schema data in your target database.
+$ PGOPTIONS=3D'--client-min-messages=3Dwarning' psql -h [host_name] -d [dat=
+abase_name]  -U [user_name] -v ON_ERROR_STOP=3DON -X -q --single-transactio=
+n -f /Users/backup/Full_data_dump.sql=20
+
+
+
+-- Export in CSV format
+SELECT '\COPY ' || tablename || ' TO ''/Users/backup/' || tablename || '.cs=
+v'' WITH (FORMAT CSV, HEADER);' as cmd
+FROM pg_tables
+WHERE schemaname =3D 'table_name'
+ORDER BY tablename asc;
+
+
+-- EXPORT Data for a schema and excluding the Metadata tables. Also disable=
+ triggers.
+pg_dump -h [host_name] -d [database_name] -U [user_name] -n [schema_name] -=
+T [table_name] -T [table_name] -a --disable-triggers --no-privileges --no-o=
+wner &gt; /Users/backup/data_only_export.sql
+
+-- EXPORT Database structure for a schema Only.
+pg_dump -h [host_name] -d [database_name] -U [user_name] -n [schema_name] -=
+C -c -s --if-exists  --no-privileges --no-owner --no-tablespaces &gt; /User=
+s/backup/schema_only_export.sql
+
+
+</pre>=20
+</div>
+</div>
+<p><br></p>
+<p><strong>Parallel pg_dump job:</strong></p>
+<p><strong><br></strong></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: sql; gutter: false; theme: Confluence" data-theme=3D"Confluence">$ time p=
+g_dump -h [host_name] -d [database_name] -U [user_name] -w -n [schema_name]=
+ -O -Fd -j 6 -f /Users/backup
+
+</pre>=20
+</div>
+</div>
+<p><br></p>
+<p><br></p>
+    </div>
+</body>
+</html>
+------=_Part_980_267960022.1508109026090--
