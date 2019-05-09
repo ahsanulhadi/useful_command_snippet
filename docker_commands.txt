@@ -1,0 +1,116 @@
+======================================
+# Basic Commands
+======================================
+
+docker --version
+> Docker version 17.06.0-ce, build 02c1d87
+
+$ docker-compose --version
+> docker-compose version 1.14.0, build c7bdf9e 
+
+docker run <image>     # Creates a container from an image and start that.
+docker start <name|id> 
+docker stop <name|id> 
+docker ps [-a include stopped containers]   # list of running containers
+docker rm <name|id>    # remove 
+
+======================================
+# Step by Step
+======================================
+
+# Pull an Image. Try NginX - https://hub.docker.com/_/nginx/ 
+$ docker pull nginx:1.12.1-alpine 
+
+# RUN the image  
+# --name Need to give a name. 
+# --p = port | 80 & 443 is used by the container. 
+# first port is for host = 80 -> second port is mapped to container 
+
+$ docker run --name my-nginx -p 80:80 nginx:1.12.1-alpine 
+(if it’s not there then docker will pull it for us.)
+
+
+# List the images
+$ docker ps
+or
+$ docker ps -a  
+
+# We cannot change the run time parameters for that, once it is created. 
+# So we need to remove this one and get a new one, which we can run as a daemon
+
+# Remove docker images. 
+$ docker rm my-nginx
+
+# Now we will run it as daemon 
+$ docker run --name my-nginx -d -p 80:80 nginx:1.12.1-alpine  
+
+-------------------------------------
+# * * *  DO NOT put data into Container * * * 
+# As we remove a container, any data that was saved inside that will be lost. 
+# So we need to keep the data outside and map the data for that container. 
+
+# Running a shell within that container. * 
+# exec runs a command within that container. Params are: 
+# -ti = in interactive mode
+# container name 
+# Which command to run.  We have exec /bin/sh i.e. started the shell. 
+
+$ docker exec -ti my-nginx /bin/sh. 
+
+# the above gives us a new shell within that container. will login as ‘root’.
+
+# Lets copy the existing cons data. 
+$ cat etc/nginx/nginx.conf 
+$ exit  (to exit the container) 
+
+# now STOP the docker container 
+$ docker stop my-nginx 
+    
+# Now remove the cont. 
+$ docker rm my-nginx   
+
+# new config file: /Users/user_name/Desktop/Docker/nginx.conf
+# so new command is: 
+# -d = run as a daemon | -v = volume shared, our song file is mapped to nginx’s one. | ro = Read only. 
+docker run --name my-nginx -d -v /Users/user_name/Desktop/docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro -p 80:80 nginx:1.12.1-alpine
+
+# Now we want to map our source code into docker.  
+# so remove the old one and add a new one. 
+
+docker run --name my-nginx -d -v /Users/user_name/Desktop/docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro -v /Users/user_name/Desktop/docker/nginx/www:/usr/share/nginx/html:ro -p 80:80 nginx:1.12.1-alpine
+
+
+======================================
+# DOCKER BUILD 
+======================================
+
+# first build the docker file with below lines in it. 
+
+FROM nginx:1.12.1-alpine
+MAINTAINER adil.gt@gmail.com
+COPY /Users/user_name/Desktop/docker/nginx/nginx.conf /etc/nginx/nginx.conf
+
+
+# Now build the container 
+# -t = adding a tag i.e. name + version
+# Zip version of nginx . set a version 
+# . means to use the local directory for docker file 
+# The command is: 
+
+$ docker build -t zip-nginx:1.0 .
+
+
+# Now run from that image. 
+$ docker run --name my-zip-nginx -d -v /Users/user_name/Desktop/docker/nginx/www:/usr/share/nginx/html:ro -p 80:80 zip-nginx:1.0
+
+
+======================================
+Install on Ubuntu . CE version
+======================================
+https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#recommended-extra-packages-for-trusty-1404
+
+# Remove previous versions
+sudo apt-get remove docker docker-engine docker.io
+
+
+

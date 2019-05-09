@@ -1,0 +1,275 @@
+=================================
+# Links (Git Basics) 
+=================================
+
+https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
+https://www.atlassian.com/git/tutorials/setting-up-a-repository
+
+https://www.youtube.com/watch?v=q6rYglziOjM    * * * 
+https://community.atlassian.com/t5/Sourcetree-questions/How-to-resolve-when-master-is-behind-origin-master-and-develop/qaq-p/349994
+
+=================================
+# Setup name/email 
+=================================
+
+git config user.name "ahsanul.hadi@email.com.au"
+
+git config --global user.name "Ahsanul Hadi"
+git config --global user.email ahsanul.hadi@email.com.au
+
+
+=================================
+# View Commit status 
+=================================
+
+# COMMIT data display: 
+git show <commit-id>
+git log -p
+git show <commit-id> --stat    # To show what a specific commit did with stats
+git log -p <commit1> <commit2> # To show commit log with differences introduced for each commit in a range.
+
+git log --graph  * * 
+
+=================================
+# Git Password Update
+=================================
+
+If PASSWORD is changed then follow this: 
+https://medium.com/@isaacjumba/git-how-to-avoid-typing-username-password-when-using-https-authentication-f22bb259dfc7
+https://stackoverflow.com/questions/20195304/how-do-i-update-the-password-for-git
+
+we need to update the keychain
+https://stackoverflow.com/questions/13661354/github-for-mac-error-git-credential-osxkeychain-is-not-a-git-command/13665683
+
+=================================
+# FORKING 
+=================================
+
+# Create a Fork
+# Clone it in your local machine: 
+$ git clone https://github.labs.com/s106784/repos.git
+
+# Add remote Upstream: Now we add a new remote that points back to the original IAG repository we cloned from. 
+$ git remote add upstream https://github.labs.com/folder/repos.git
+
+Note that the remote can be called anything, but everyone seems to use the convention of calling it upstream so we may as well too.
+
+# Check: 
+$ git remote -v
+
+# Keeping your fork up to date
+For now we can ignore the complexities of remote branches and focus on how to keep the master branch in your personal fork origin in sync with the master branch on IAGs original repo upstream. This involves these commands:
+$ git checkout master
+
+$ git fetch upstream
+$ git merge upstream/master
+$ git push
+
+OR
+
+$ git checkout master
+$ git pull upstream master
+$ git push
+
+
+https://help.github.com/articles/pushing-to-a-remote/
+
+What we are saying here is:
+Checkout the master branch on my local copy of the repo
+Fetch any changes from the IAG repo upstream
+Merge any changes made in the IAG upstream branch master into your local copy of the master branch
+Push those changes to your personal fork on github so it reflects what you've just done on your local machine
+
+=================================
+# CLONING 
+=================================
+
+https://confluence.atlassian.com/bitbucket/branching-a-repository-223217999.html
+
+# Clone/ Fetch a new repository
+$ git clone https://hadi_x@bitbucket.org/x/edh_tests.git
+
+# Check status
+# Git Status only shows local changes. If anything is changed in the Remote/Origin then we have to pull changes first. 
+$ git status
+
+# Check url path (fetch/push) for your origin
+$ git remote -v
+
+# Show current branch
+$ git branch 
+
+# Next time you want fetch the new changes from Source, then:
+$ git fetch 
+$ git merge origin/master
+
+# If we want to pull all changes from Origin to our local repository. Local files will be OVERWRITTEN.
+$ git pull --all  
+
+=================================
+# BRANCING
+=================================
+
+# Checkout a remote branch 
+$ git fetch
+$ git checkout -b <local_branch_name> origin/<remote_branch_name>
+
+(if we want to clone directly then:   git clone -b my-branch git@github.com:user/myproject.git   ) 
+
+If we want to update the same branch ion other pc:
+$ git pull origin <remote_branch_name> 
+
+------------------------
+# Now you have the required files in your local machine (in default branch = master).
+
+# First, update the master branch
+$ git pull origin master
+
+$ git push origin hadi
+
+# You can either work on the master branch or create another one.
+# Create new branch. Branch name = hadi
+$ git checkout -b hadi  
+OR
+$ git branch hadi
+$ git checkout hadi 
+
+# Switch to a different branch.
+$ git checkout master     (Switch to branch: master)
+$ git checkout hadi        (Switch to branch: hadi)
+
+
+# Makes changes, Add those changes. 
+$ git add .  # Add all files
+$ git add *.sql # Add files with .sql extension.
+
+# If we made any changes in Local file but then decided to revert back to the old one which is in Origin, then:
+$ git checkout <file_name>
+
+# If you want to undo/unstage that change i.e. the things you have added, then
+$ git reset HEAD <file_name>. 
+ 
+# If you are happy with the changes, then commmit. 
+# (-a = tracks user info.)
+$ git commit -am “<short description of the changes made.>”
+
+
+# Once committed, push those chnages to Origin from your local branch (currently we are working on hadi branch). 
+$ git push -u origin hadi
+
+# Next step, create a PULL Request.  When approved then merge it. 
+* * If dev branch is ahead of Master branch then go to Bitbucket and click on MERGE. that will do. 
+* * But If Master branch is ahead the, we need to rebase. See Section: REBASING.
+
+
+* * Add different UPSTREAM: 
+git remote add upstream https://github.labs.com/folder/iag-edh-ctx-ctxtn.git
+
+git remote add upstream https://github.labs.com/folder/ActiveBatch-EDH-Repo.git
+
+
+* * Update the branch from Master 
+https://stackoverflow.com/questions/3876977/update-git-branches-from-master
+
+git checkout b1
+git merge master
+# repeat for b2 and b3
+
+
+# MERGE: 
+
+# Merge (get) files from source branch to the new branch repo. (get the files in local branch = hadi) 
+$ git merge origin/hadi
+
+--------------------------------
+# RENAME branch
+git branch -m old_branch new_branch         # Rename branch locally    
+git push origin :old_branch                 # Delete the old branch    
+git push --set-upstream origin new_branch   # Push the new branch, set local branch to track the new remote
+
+
+Way:2
+
+# RENAME BRANCH: 
+
+If you are on the branch you want to rename:
+
+git branch -m new-name
+If you are on a different branch:
+
+git branch -m old-name new-name
+2. Delete the old-name remote branch and push the new-name local branch.
+
+git push origin :old-name new-name
+3. Reset the upstream branch for the new-name local branch.
+
+Switch to the branch and then:
+git push origin -u new-name
+
+
+=================================
+# DELETE BRANCH
+=================================
+
+# To delete the local branch, use one of the following:
+
+$ git branch -d branch_name
+$ git branch -D branch_name
+
+Note: 
+The -d option is an alias for --delete, which only deletes the branch if it has already been fully merged in its upstream branch. 
+The -D option is an alias for --delete --force, which deletes the branch "irrespective of its merged status." 
+
+# Delete a remote branch: 
+$ git push origin --delete <branch_name>   [for Git v1.7.0]
+OR, 
+$ git push origin :<branch_name>   [for Git v1.5.0]
+
+--------------------------------
+# if you forget to create a new branch, you can
+
+$ git stash
+$ git checkout -b <the branch you want>
+$ git stash pop
+
+=================================
+# Create PULL request
+=================================
+
+https://yangsu.github.io/pull-request-tutorial/
+
+=================================
+# REBASING
+=================================
+https://git-scm.com/book/en/v2/Git-Branching-Rebasing 
+https://www.atlassian.com/git/tutorials/merging-vs-rebasing
+
+# We are on 'dev' branch.
+
+$ git status
+$ git checkout dev  
+$ git fetch origin
+$ git rebase origin/master
+$ git log
+$ git pull
+$ git push
+
+
+
+=================================
+# TAG
+=================================
+# Use tag to manage versioning. 
+
+# How to tag
+$ git tag -a v1.6.6 -m "Last modified on 2016.08.31"
+
+# See list of tags or find one. 
+$ git tag  
+or
+$ git tag -l “v1.5.2” 
+
+# Show the version info. 
+$ git show 
+
+
