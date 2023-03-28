@@ -200,6 +200,14 @@ WHERE
 ORDER BY
   runtime DESC;
 
+-- Find Long Running queries
+-- To prevent long running transactions from blocking vacuuming, you can terminate them by running pg_terminate_backend() on their PIDs.
+
+SELECT pid, datname, usename, state, backend_xmin
+FROM pg_stat_activity
+WHERE backend_xmin IS NOT NULL
+ORDER BY age(backend_xmin) DESC;
+
 -- =============================================
 -- TABLE BLOAT
 -- =============================================
